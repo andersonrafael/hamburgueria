@@ -9,7 +9,7 @@
         integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>Hamburgueria</title>
+    <title>BurguerZinha</title>
     <link rel="stylesheet" href="./styles/output.css">
     <link rel="stylesheet" href="reset.css">
     <script type="module" src="script.js"></script>
@@ -188,7 +188,55 @@
             </div>
 
             <!-- END PRODUTO ITEM 6-->
+
         </main>
+
+        <div class="mx-auto max-w-7xl px-2 my-2">
+            <h2 class="font-bold text-2xl">Bebidas</h2>
+        </div>
+
+        <!--Grid bebidas-->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16" id="menu">
+
+            <!--coca cola-->
+            <div class="flex gap-2 w-full">
+                <img src="./assets/refri-1.png" alt="Coca-cola lata"
+                    class="w-28 h-28 rounded-md hover:scale-105 duration-300">
+
+                <div class="w-full">
+                    <p class="font-bold">Coca Cola Lata 300ml</p>
+
+                    <div class="flex items-center gap-2 justify-between mt-2">
+                        <p class="font-bold">R$ 2,99</p>
+                        <button class="bg-green-600 px-5 rounded hover:scale-110 duration-300 add-to-cart-btn"
+                            data-name="Coca lata hover:scale-105 duration-300" data-price="2.99">
+                            <i class=" fa fa-cart-plus text-lg text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- End coca cola-->
+        </div>
+
+        <!--coca cola-->
+        <div class="flex gap-2 w-full">
+            <img src="./assets/refri-2.png" alt="Guaraná lata"
+                class="w-28 h-28 rounded-md hover:scale-105 duration-300">
+
+            <div class="w-full">
+                <p class="font-bold">Guarana Lata 300ml</p>
+
+                <div class="flex items-center gap-2 justify-between mt-2">
+                    <p class="font-bold">R$ 2,99</p>
+                    <button class="bg-green-600 px-5 rounded hover:scale-110 duration-300 add-to-cart-btn"
+                        data-name="Guarana lata hover:scale-105 duration-300" data-price="2.99">
+                        <i class=" fa fa-cart-plus text-lg text-white"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- End coca cola-->
+        </div>
+        <!--End Grid bebidas-->
     </div>
 
     <!-- END MENU-->
