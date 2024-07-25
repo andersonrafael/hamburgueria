@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -27,7 +31,8 @@
 
             <h1 class=" text-3xl mt-4 mb-2 font-bold text-white">BuguerZinha</h1>
 
-            <span class="text-white font-medium">Rua Joaquim Ferreira de Sousa 161, Pajuçara - Maracanaú</span>
+            <span class="text-white font-medium flex-col justify-center items-center">Rua Joaquim Ferreira de Sousa 161,
+                Pajuçara - Maracanaú</span>
 
             <div class="bg-green-600 px-4 py-1 mt-5 rounded-lg text-white font-medium" id="date-spam">
                 <span>Ter á Dom - 18:00 as 23:00</span>
@@ -48,7 +53,7 @@
 
             <div class="flex gap-2">
                 <img src="./assets/hamb-1.png" alt="Hambuguer Big-Buguer"
-                    class="w-28 h-28 rounded-md hover:scale-105 duration-300">
+                    class="w-28 h-28 rounded-md hover:scale-105 duration-300 ">
 
 
                 <div>
@@ -308,7 +313,7 @@
 
                     <div class="flex items-center gap-2 justify-between mt-2">
                         <p class="font-bold">R$ 2,99</p>
-                        <button class="bg-green-600 px-5 rounded hover:scale-110 duration-300 add-to-cart-btn"
+                        <button class="bg-green-600 px-5 rounded hover:scale-110 duration-300 add-to-cart-btn "
                             data-name="Vitamina Goiaba hover:scale-105 duration-300" data-price="4.99">
                             <i class=" fa fa-cart-plus text-lg text-white"></i>
                         </button>
@@ -351,8 +356,9 @@
     <!--END MODAL CART-->
 
     <!--BUTTON CART FOOTER-->
-    <footer class="w-full bg-red-400 py-3 fixed bottom-0 z-40 flex items-center justify-center">
-        <button class="flex items-center gap-2 text-white font-bold" id="cart-btn">
+    <footer
+        class="w-full bg-red-400 py-3 fixed bottom-0 z-40 flex items-center justify-center hover:scale-105 duration-300">
+        <button class="flex items-center gap-2 text-white font-bold " id="cart-btn">
             (<span class="cart-count">0</span>)
             Ir para carrinho
             <i class="fa fa-cart-plus text-lg  text-white"></i>
