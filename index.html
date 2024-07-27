@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script type="module" src="script.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -314,7 +316,7 @@
 
                     <div class="flex items-center gap-2 justify-between mt-2">
                         <p class="font-bold">R$ 2,99</p>
-                        <button class="bg-red-600 px-5 rounded hover:scale-110 duration-300 add-to-cart-btn "
+                        <button class="bg-green-600 px-5 rounded hover:scale-110 duration-300 add-to-cart-btn "
                             data-name="Vitamina Goiaba hover:scale-105 duration-300" data-price="4.99">
                             <i class=" fa fa-cart-plus text-lg text-white"></i>
                         </button>
@@ -333,7 +335,7 @@
     <!-- END MENU-->
 
     <!--MODAL CART-->
-    <div class="bg-black/40 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden">
+    <div class="bg-black/40 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden" id="cart-modal">
 
         <div class="bg-white p-5 rounded-md min-w-[80%] md:min-w-[600px]">
 
@@ -368,5 +370,7 @@
     <!-- END BUTTON CART FOOTER-->
 
 </body>
+
+
 
 </html>
