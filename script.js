@@ -17,3 +17,6 @@ cartBtn.addEventListener("click", function () {
 
 //fechar nodal quando clicar fora
 
+closeModalBtn.addEventListener("click", function () {
+    closeModalBtn.display = "none"
+})
