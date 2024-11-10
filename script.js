@@ -10,7 +10,7 @@ const addressInput = document.getElementById("address")
 const addressWarn = document.getElementById("address-warn")
 
 
-//abrir modal carrinho
+//abrir modal do carrinho
 cartBtn.addEventListener("click", function () {
     cartModal.style.display = "flex"
 })
