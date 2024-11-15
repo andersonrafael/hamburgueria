@@ -13,6 +13,7 @@ let cart = [];
 
 //abrir modal do carrinho
 cartBtn.addEventListener("click", function name(params) {
+    updateCartModal()
     cartModal.style.display = "flex"
 })
 
@@ -39,12 +40,65 @@ menu.addEventListener("click", function name(event) {
     }
 })
 
+
 //função para add ao carrinho
+
 function addToCart(name, price) {
-    cart.push({
-        name, price, quantity: 1
-    })
+
+    const existingItem = cart.find(item => item.name === name)
+
+    // condição para somar itens repetidos
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            name, price, quantity: 1,
+        })
+    }
+
+    updateCartModal()
 }
+
+//Atualiza carrinho
+
+function updateCartModal() {
+    cartItemsContainer.innerHTML = "";
+    let total = 0;
+    cart.forEach(item => {
+        const cartItemElement = document.createElement("div");
+        cartItemElement.classList.add("flex", "justify-between", "mb-4", "flex-col")
+
+        cartItemElement.innerHTML = `
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="font-bold">${item.name}</p>
+                <p>Qtd:${item.quantity}</p>
+                <p class="font-medium mb-2"> R$ ${item.price.toFixed(2)}</p>
+            </div>
+
+             <button> 
+             Remover
+             </button>
+
+        </div>
+        `
+        total += item.price * item.quantity;
+
+        cartItemsContainer.appendChild(cartItemElement)
+    })
+
+    cartTotal.textContent = total.toFixed(2).toLocaleString("pt-BR", {
+        style: "currecy", currency: "BRL"
+    });
+
+
+}
+
+
+
+
+
 
 
 
