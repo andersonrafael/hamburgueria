@@ -9,7 +9,6 @@ const cartCounter = document.getElementById("cart-count")
 const addressInput = document.getElementById("address")
 const addressWarn = document.getElementById("address-warn")
 
-
 let cart = [];
 
 //abrir modal do carrinho
