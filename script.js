@@ -12,7 +12,7 @@ const addressWarn = document.getElementById("address-warn")
 let cart = [];
 
 //abrir modal do carrinho
-cartBtn.addEventListener("click", function name(params) {
+cartBtn.addEventListener("click", function name() {
     updateCartModal()
     cartModal.style.display = "flex"
 })
@@ -73,7 +73,7 @@ function updateCartModal() {
         <div class="flex items-center justify-between">
             <div>
                 <p class="font-bold">${item.name}</p>
-                <p>Qtd:${item.quantity}</p>
+                <p> Qtd: ${item.quantity}</p>
                 <p class="font-medium mb-2"> R$ ${item.price.toFixed(2)}</p>
             </div>
 
@@ -81,19 +81,22 @@ function updateCartModal() {
              Remover
              </button>
 
-        </div>
+        </div>  
         `
         total += item.price * item.quantity;
 
         cartItemsContainer.appendChild(cartItemElement)
     })
 
-    cartTotal.textContent = total.toFixed(2).toLocaleString("pt-BR", {
-        style: "currecy", currency: "BRL"
+    cartTotal.textContent = total.toLocaleString("pt-BR", {
+        style: "currency", currency: "BRL"
+
     });
 
 
+
 }
+
 
 
 
