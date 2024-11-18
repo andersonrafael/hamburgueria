@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <p class="font-medium mb-2"> R$ ${item.price.toFixed(2)}</p>
             </div>
 
-             <button class="remove-from-cart-btn" data-name="${item.name}"> 
+             <button class="remove-from-cart-btn bg-red-400 text-white px-4 py-1 rounded hover:scale-105 duration-300" data-name="${item.name}"> 
              Remover
              </button>
 
