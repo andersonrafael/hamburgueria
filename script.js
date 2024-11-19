@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         });
 
-        //cartCounter.innerHTML = cart.length;
+        cartCounter.innerHTML = cart.length;
 
     }
 
@@ -126,5 +126,20 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
+        addressInput.addEventListener("input", function (event) {
+            let inputValue = event.target.value;
+        })
+
+        checkoutBtn.addEventListener("click", function () {
+            if (cart.length === 0)
+                return;
+            if (addressInput.value === "") {
+                addressWarn.classList.remove("hidden")
+                addressInput.classList.add("border-red-500")
+                return;
+            } {
+
+            }
+        })
     })
 });
