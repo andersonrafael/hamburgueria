@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         });
 
-        cartCounter.innerHTML = cart.length;
+        //cartCounter.innerHTML = cart.length;
 
     }
 
@@ -128,6 +128,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         addressInput.addEventListener("input", function (event) {
             let inputValue = event.target.value;
+
+            if (inputValue !== "") {
+                addressInput.classList.remove("boder-red-500")
+                addressWarn.classList.add("hidden")
+            }
         })
 
         checkoutBtn.addEventListener("click", function () {
@@ -137,8 +142,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 addressWarn.classList.remove("hidden")
                 addressInput.classList.add("border-red-500")
                 return;
-            } {
+            }
+            // Verificar horario de funconamento para finalizar pedido
+            function checkOpen() {
+                const data = new Date();
+                const hora = data.getHours();
+                return hora >= 18 && hora < 22; // permite finalizar pedido
 
+                const spanItem = document.getElementById("date-span")
+                const isOpen = checkOpen();
+
+                if (isOpen) {
+                    spanItem.classList.remove("bg-red-500");
+                    spanItem.classList.add("bg-green-600")
+                } else {
+                    spanItem.classList.remove("bg-green-600");
+                    spanItem.classList.add("bg-red-500")
+                }
             }
         })
     })
