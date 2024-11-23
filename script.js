@@ -142,13 +142,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         checkoutBtn.addEventListener("click", function () {
-
-            const isOpen = checkRestaurantOpen();
-            if (isOpen) {
-                alert("RESTAURANTE FECHADO NO MOMENTO!")
-                return;
-            }
-
             if (cart.length === 0)
                 return;
             if (addressInput.value === "") {
@@ -181,3 +174,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     });
+});
