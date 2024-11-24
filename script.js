@@ -138,40 +138,57 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
     //Finalizar pedido
+
     checkoutBtn.addEventListener("click", function () {
 
-
-        checkoutBtn.addEventListener("click", function () {
-            if (cart.length === 0)
-                return;
-            if (addressInput.value === "") {
-                addressWarn.classList.remove("hidden")
-                addressInput.classList.add("border-red-500")
-                return;
-            }
-        })
-
-
-
-        // Verificar horario de funcionamento para finalizar pedido
-        function checkRestaurantOpen() {
-            const data = new Date();
-            const hora = data.getHours();
-            return hora >= 18 && hora <= 22; // permite finalizar pedido
-        }
-
-        const spanItem = document.getElementById("date-span")
         const isOpen = checkRestaurantOpen();
-
-        if (isOpen) {
-            spanItem.classList.remove("bg-red-500");
-            spanItem.classList.add("bg-green-600")
-        } else {
-            spanItem.classList.remove("bg-green-600");
-            spanItem.classList.add("bg-red-500")
+        if (!isOpen) {
+            alert("Não estamos funcionando no momento")
+            return;
         }
 
+        if (cart.length === 0)
+            return;
+        if (addressInput.value === "") {
+            addressWarn.classList.remove("hidden")
+            addressInput.classList.add("border-red-500")
+            return;
+        }
+
+        //Enviar o pedido para whatsapp
+        const cartItems = cart.map((item) => {
+            return (
+                `${item.name} Quantidade : (${item.quantity})  Preço: R$ ${item.price} Total: R$ ${item.price * item.quantity} `
+            )
+        }).join("")
+
+        const message = encodeURIComponent(cartItems)
+        const phone = "55085999822417"
+
+        window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`)
+
+        cart = [];
+        updateCartModal();
+    })
 
 
-    });
+    // Verificar horario de funcionamento para finalizar pedido
+    function checkRestaurantOpen() {
+        const data = new Date();
+        const hora = data.getHours();
+        return hora >= 18 && hora <= 23;
+    }
+    // permite finalizar pedido
+
+    const spanItem = document.getElementById("dateSpan")
+    const isOpen = checkRestaurantOpen();
+
+
+    if (isOpen) {
+        spanItem.classList.remove("bg-red-500");
+        spanItem.classList.add("bg-green-600")
+    } else {
+        spanItem.classList.remove("bg-green-600")
+        spanItem.classList.add("bg-red-500")
+    }
 });
