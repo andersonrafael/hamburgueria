@@ -15,6 +15,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let cart = [];
 
+    // Carregar o carrinho do localStorage
+    loadCartFromLocalStorage();
+
+
+    function loadCartFromLocalStorage() {
+        const savedCart = localStorage.getItem('cart');
+        if (savedCart) {
+            cart = JSON.parse(savedCart);
+        }
+    }
+
     //abrir modal do carrinho
     cartBtn.addEventListener("click", function name() {
         updateCartModal()
@@ -156,16 +167,37 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         //Enviar o pedido para whatsapp
+
+        function criarMensagemWhatsApp() {
+
+            let mensagem = "Seu pedido contém:\n";
+            mensagem += "";
+            cart.forEach(item => {
+                mensagem += `<li>${item.nome}: ${item.quantidade} x R$ ${item.preco.toFixed(2)} = R$ ${(item.quantidade * item.preco).toFixed(2)}</li>`;
+            });
+            mensagem += "\n";
+
+            // Calculando o total e adicionando à mensagem
+            const total = calcularTotal();
+            mensagem += `\nTotal: R$ ${total.toFixed(2)}`;
+
+            return mensagem;
+
+        }
+
         const cartItems = cart.map((item) => {
             return (
-                `${item.name} Quantidade : (${item.quantity})  Preço: R$ ${item.price} Total: R$ ${item.price * item.quantity} `
+                `${item.name} Quantidade : (${item.quantity})  Preço: R$ ${item.price} Total: R$ ${item.price * item.quantity} 
+        `
             )
+
         }).join("")
 
-        const message = encodeURIComponent(cartItems)
+
+        const mensagemWa = encodeURIComponent(cartItems)
         const phone = "55085999822417"
 
-        window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`)
+        window.open(`https://wa.me/${phone}?text=${mensagemWa} Endereço: ${addressInput.value}`)
 
         cart = [];
         updateCartModal();
@@ -176,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function checkRestaurantOpen() {
         const data = new Date();
         const hora = data.getHours();
-        return hora >= 18 && hora <= 23;
+        return hora >= 1 && hora <= 23;
     }
     // permite finalizar pedido
 
@@ -188,7 +220,9 @@ document.addEventListener('DOMContentLoaded', function () {
         spanItem.classList.remove("bg-red-500");
         spanItem.classList.add("bg-green-600")
     } else {
-        spanItem.classList.remove("bg-green-600")
+        spanItem.classList.remove("bg-green-600");
         spanItem.classList.add("bg-red-500")
     }
+
+
 });
